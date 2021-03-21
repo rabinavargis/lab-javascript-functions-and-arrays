@@ -1,9 +1,9 @@
-const { chartreuse } = require("color-name");
-const { count } = require("console");
+// const { chartreuse } = require("color-name");
+// const { count } = require("console");
 
 // Progression #1: Greatest of the two numbers
 var x = 10; var y= 20;
-greatestOfTwoNumbers = () => {
+greatestOfTwoNumbers = (x,y) => {
   if( x >  y){
     return x;
   }
@@ -14,40 +14,48 @@ greatestOfTwoNumbers = () => {
 // Progression #2: The lengthy word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 function findScaryWord(words){
-  var lngth = 0;
-  var longest;
-  for(var i=0; i < words.length ; i++){
-    if(words[i].length > lngth){
-      var lngth = words[i].length;
-      longest = words[i];
-    }
+  var len = 0
+  for (var index = 0; index < words.length; index++) {
+    if (len < words[index].length)
+      len = words[index].length
   }
+  for (var index = 0; index < words.length; index++) {
+    if (len == words[index].length)
+      return words[index]
+  }
+  return null
 }
-console.log(longest);
-findScaryWord();
+// console.log(longest);
+// findScaryWord();
 
 // Progression #3: Net Price
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-function netPrice(){
-  if(numbers.length === 0){
+function netPrice(numbers){
+  if(numbers.length == 0){
     return 0;
   }
+  // var total=0;
+  // for(var i = 0; i < numbers.length; i++){
+  //       total += numbers[i];
+  //     }
+  //     return total;
   else if(numbers.length === 1){
     return numbers;
   }
-  else{
-    var total = 0;
-    for(var i = 0; i < numbers.length; i++){
-      total += numbers[i];
-    }
-  }
-  return total;
+  // else{
+  //   var total = 0;
+  //   for(var i = 0; i < numbers.length; i++){
+  //     total += numbers[i];
+  //   }
+  // }
+  // return total;
+
 }
 
 // Progression #4: Calculate the average
 // Progression 4.1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-midPointOfLevels = () => {
+midPointOfLevels = (numbersAvg) => {
   if(numbersAvg.length === 0){
     return null;
   }
@@ -60,20 +68,23 @@ midPointOfLevels = () => {
   }
   return avg;
 }
-midPointOfLevels();
+// midPointOfLevels();
 
 /* const midPointOfLevel = numbersAvg => numbersAvg.reduce((a,b) => a + b, 0)/numbersAvg.length */
 
 // Progression 4.2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
- averageWordLength = () => {
-   var total = 0; var avg;
-   for(var i =0; i < wordsArr.length; i++){
+ averageWordLength = (wordsArr) => {
+   var total = 0; 
+   var avg;
+   if(wordsArr.length==0)
+   return null;
+   for(var i=0; i < wordsArr.length; i++){
     total += wordsArr[i].length;
    }
    avg = total/wordsArr.length;
  } 
- averageWordLength()
+//  averageWordLength()
 
 // Progression #5: Unique arrays
 const wordsUnique = [
