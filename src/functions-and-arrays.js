@@ -1,17 +1,79 @@
-// Progression #1: Greatest of the two numbers
+const { chartreuse } = require("color-name");
+const { count } = require("console");
 
+// Progression #1: Greatest of the two numbers
+var x = 10; var y= 20;
+greatestOfTwoNumbers = () => {
+  if( x >  y){
+    return x;
+  }
+  else
+  return y;
+
+}
 // Progression #2: The lengthy word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findScaryWord(words){
+  var lngth = 0;
+  var longest;
+  for(var i=0; i < words.length ; i++){
+    if(words[i].length > lngth){
+      var lngth = words[i].length;
+      longest = words[i];
+    }
+  }
+}
+console.log(longest);
+findScaryWord();
 
 // Progression #3: Net Price
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function netPrice(){
+  if(numbers.length === 0){
+    return 0;
+  }
+  else if(numbers.length === 1){
+    return numbers;
+  }
+  else{
+    var total = 0;
+    for(var i = 0; i < numbers.length; i++){
+      total += numbers[i];
+    }
+  }
+  return total;
+}
 
 // Progression #4: Calculate the average
 // Progression 4.1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+midPointOfLevels = () => {
+  if(numbersAvg.length === 0){
+    return null;
+  }
+  else{
+    var avg; var total = 0;
+    for(var i in numbersAvg){
+      total += numbersAvg[i];
+    }
+    avg = total/numbersAvg.length;
+  }
+  return avg;
+}
+midPointOfLevels();
+
+/* const midPointOfLevel = numbersAvg => numbersAvg.reduce((a,b) => a + b, 0)/numbersAvg.length */
 
 // Progression 4.2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+ averageWordLength = () => {
+   var total = 0; var avg;
+   for(var i =0; i < wordsArr.length; i++){
+    total += wordsArr[i].length;
+   }
+   avg = total/wordsArr.length;
+ } 
+ averageWordLength()
 
 // Progression #5: Unique arrays
 const wordsUnique = [
@@ -28,6 +90,13 @@ const wordsUnique = [
   'egg',
   'flour'
 ];
+uniquifyArray = () => {
+  let uniquechar = wordsUnique.filter((c,index) => {
+    return chartreuse.indexOf(c) === index;
+  });
+  console.log(uniquechar)
+} 
+uniquifyArray();
 
 // Progression #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -46,6 +115,28 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+searchElement = () => {
+  wordsCount.sort();
+  var current = null;
+  var count = 0;
+  for(var i = 0; i < wordsCount.length; i++){
+    if(wordsCount[i]!=current){
+      if(count > 0) {
+        return (current+ 'comes' + count + 'tmes<br>');
+      }
+      current = wordsCount[i];
+      count =1;
+    }
+    else {
+      count++;
+    }
+  }
+  if(count>0){
+    return (current+ 'comes' + count + 'tmes<br>')
+  }
+}
+count();
+searchElement();
 
 // Progression #8: Bonus
 
